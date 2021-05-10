@@ -24,12 +24,14 @@ const SvgMaps = () => {
             setLoading(true)
             const {
               data: { location },
-            } = await axios.get( 'https://geo.ipify.org/api/v1?apiKey=at_cfE6Y84MYOphf7tuNQ4AIpMiY42Gg&ipAddress=8.8.8.8' );
+            } = await axios.get( 'https://geo.ipify.org/api/v1?apiKey=at_cfE6Y84MYOphf7tuNQ4AIpMiY42Gg' );
             
             switch (location.region) {
+              case 'Baden-Württemberg': 
+                
               case 'Baden-Wurttemberg':
                 setUserLocation({ ...location, id: 'bw' })
-                break
+                break 
               case 'Berlin':
               case 'Land Berlin':
                 setUserLocation({ ...location, id: 'be' })
@@ -78,7 +80,18 @@ const SvgMaps = () => {
             }
             setLoading(false)
           }
-          getUserLocation()
+
+          if ("geolocation" in navigator) {
+            navigator.geolocation.getCurrentPosition((position)=> {
+              console.log("Latitude is :", position.coords.latitude);
+              console.log("Longitude is :", position.coords.longitude);
+              
+            });    
+
+          } else {
+            getUserLocation()
+          }
+          
         }, [])
       
         const selectLocation = ({ target }) => {
