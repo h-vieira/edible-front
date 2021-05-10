@@ -65,6 +65,7 @@ const Navbar = () => {
 					)}
 					{ isAuth && (
 						<Fragment>
+						<Button component={RLink} to="/create-edible" color="inherit">Add Edible</Button>
 						<IconButton
 							aria-label="account of current user"
 							aria-controls="menu-appbar"

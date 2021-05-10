@@ -24,9 +24,8 @@ const SvgMaps = () => {
             setLoading(true)
             const {
               data: { location },
-            } = await axios.get(
-              'https://geo.ipify.org/api/v1?apiKey=at_cfE6Y84MYOphf7tuNQ4AIpMiY42Gg&ipAddress=8.8.8.8'
-            )
+            } = await axios.get( 'https://geo.ipify.org/api/v1?apiKey=at_cfE6Y84MYOphf7tuNQ4AIpMiY42Gg&ipAddress=8.8.8.8' );
+            
             switch (location.region) {
               case 'Baden-Wurttemberg':
                 setUserLocation({ ...location, id: 'bw' })
