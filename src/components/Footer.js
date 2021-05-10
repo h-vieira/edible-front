@@ -10,7 +10,7 @@ const Copyright = () => {
     <Typography variant="body2" color="textSecondary">
       {'Copyright © '}
       <Link color="inherit" href="https://material-ui.com/">
-        Your Website
+      https://isThisEdible.com/
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
     root: {
       display: 'flex',
       flexDirection: 'column',
-      minHeight: '100vh',
+      minHeight: '20vh',
     },
     main: {
       marginTop: theme.spacing(8),
@@ -45,7 +45,7 @@ const Footer = () => {
                 
                 <footer className={classes.footer}>
                     <Container maxWidth="sm">
-                    <Typography variant="body1">Eat health</Typography>
+                    <Typography variant="body1">Eat healthy live longer</Typography>
                     <Copyright />
                     </Container>
                 </footer>

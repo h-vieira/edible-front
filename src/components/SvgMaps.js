@@ -28,7 +28,6 @@ const SvgMaps = () => {
             
             switch (location.region) {
               case 'Baden-Württemberg': 
-                
               case 'Baden-Wurttemberg':
                 setUserLocation({ ...location, id: 'bw' })
                 break 
@@ -81,17 +80,17 @@ const SvgMaps = () => {
             setLoading(false)
           }
 
+
           if ("geolocation" in navigator) {
             navigator.geolocation.getCurrentPosition((position)=> {
               console.log("Latitude is :", position.coords.latitude);
               console.log("Longitude is :", position.coords.longitude);
-              
             });    
 
           } else {
-            getUserLocation()
+            console.log("Not Available");
           }
-          
+          getUserLocation()
         }, [])
       
         const selectLocation = ({ target }) => {
@@ -99,7 +98,8 @@ const SvgMaps = () => {
             ...userLocation,
             region: target.getAttribute('name'),
             id: target.getAttribute('id'),
-          })
+          });
+          
         }
       
         const highlightLocation = (p) =>

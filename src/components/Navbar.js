@@ -14,15 +14,19 @@ import Button from '@material-ui/core/Button';
 import Link from '@material-ui/core/Link';
 
 const useStyles = makeStyles((theme) => ({
-	root: { flexGrow: 1, },
+	root: { 
+		position: 'sticky',
+		flexGrow: 1,
+		height: '10vh'
+	},
 	menuButton: { marginRight: theme.spacing(2), },
 	title: { flexGrow: 1, },
 }));
 
 
 const Navbar = () => {
-	const signin = () => {return <Redirect to='/sign-in'/>}
 	const classes = useStyles();
+	const signin = () => {return <Redirect to='/sign-in'/>}
 	const preventDefault = (event) => event.preventDefault();
 	const { isAuth, logOut } = useContext(AuthContext);
 	
@@ -86,7 +90,7 @@ const Navbar = () => {
 							onClose={handleClose}
 							>
 							<MenuItem component={RLink} to="/activity">My activity</MenuItem>
-							<MenuItem component={RLink} to="/my-acc">My account</MenuItem>
+							<MenuItem component={RLink} to="/Profile">My account</MenuItem>
 							<MenuItem onClick={logOut} >LogOut</MenuItem>
 						</Menu>
 						</Fragment>

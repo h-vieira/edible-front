@@ -12,7 +12,7 @@ import Ediblepedia from './components/Ediblepedia.js';
 import SignUp from './components/SignUp.js';
 import SignIn from './components/SignIn.js';
 import NotFound from './components/404.js';
-import Me from './components/me.js';
+import Profile from './components/Profile.js';
 import CreateEdible from './components/CreateEdible.js';
 /* import Edible from './components/Edible.js'; */
 
@@ -33,16 +33,16 @@ const App = () => {
 
 				<Switch>
 					<Route exact path='/'  render={() => <Home />} />
-					<Route exact path="/ite/:id" render={() => <Edible />} />
+					<Route exact path="/edible/:id" render={() => <Edible />} />
 
 					<Route exact path='/create-edible' render={() => <CreateEdible />} />
 					<Route exact path='/ediblepedia' render={() => <Ediblepedia />} />
 					<Route exact path='/sign-up/' render={() => <SignUp />} />
 					<Route exact path='/sign-in/' render={() => <SignIn />} />
-					<ProtectedRoute exact path='/me' component={Me} />
+					<ProtectedRoute exact path='/profile' component={Profile} />
 					
 					<Route path='*' render={() => <NotFound />} />
-
+					
 				</Switch>
 			<Footer />
 

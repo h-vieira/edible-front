@@ -28,13 +28,15 @@ const CreateEdible = () => {
     const classes = useStyles();
 
     const { isAuth, setIsAuth, error, setError } = useContext(AuthContext);
+    const [isCreated, setIsCreated] = useState('');
     const [formState, setFromState] = useState({
         name: '',
         scientificName: '',
         desc: '',
-        image: ''
+        image: '',
+        sensory_desc: ''
     });
-    const { name: formName, scientificName, desc, image  } = formState;
+    const { name: formName, scientificName, desc, image, sensory_desc  } = formState;
     const onChange = evt => setFromState({ ...formState, [evt.target.name]: evt.target.value });
 
     const onSubmit = async evt => {
@@ -51,14 +53,18 @@ const CreateEdible = () => {
         };
         try {
             const res = await fetch(`${URL}/edibles`, options);
-            const response = await res.json();
-            console.log(response)
+            const { id } = await res.json();
+            console.log(id);
+            if( id ) setIsCreated(id);
+            
          
 
         } catch (error) {
             console.log(error);
         }
+        
     };
+    if ( isCreated ) return <Redirect to={{  pathname: `/edible/${isCreated}` }} />
 
     return (
         <Fragment>
@@ -71,7 +77,7 @@ const CreateEdible = () => {
                 <form className={classes.form} noValidate onSubmit={onSubmit} justifyContent="center">
                     <Grid container spacing={2}>
                     <Typography className={classes.title} variant="h6" >
-                        Basic info
+                        Edible basic info
                     </Typography>
                         <Grid item xs={12}>
                             <TextField
@@ -122,7 +128,7 @@ const CreateEdible = () => {
                     
 
                         <Typography className={classes.title} variant="h6" >
-                            Advanced info
+                            Edible Advanced info
                         </Typography>
 
                         <Grid item xs={12}  >
@@ -136,6 +142,20 @@ const CreateEdible = () => {
                                 name="scientificName"
                                 label="Scientific name"
                                 value={scientificName}
+                                onChange={onChange}
+                            />
+                        </Grid>
+                        <Grid item xs={12}  >
+                            <TextField
+                                variant="outlined"
+                                autoComplete="sensory_desc"
+                                required
+                                fullWidth
+                                type="text"
+                                id="sensory_desc"
+                                name="sensory_desc"
+                                label="Sensory desciption"
+                                value={sensory_desc}
                                 onChange={onChange}
                             />
                         </Grid>

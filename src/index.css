@@ -14,11 +14,16 @@ code {
 html, body {
   margin: 0;
   padding: 0;
+ 
+}
+body::-webkit-scrollbar {
+  display: none;
 }
 
 
 .svg-map-custom {
-  height: 300px;
+ min-width: 13vw;
+ margin: 1vw;
 }
 
 .svg-map__location_selected {
@@ -35,4 +40,70 @@ html, body {
 
 .svg-map__location_default:hover {
   fill: lightblue;
+}
+
+.content{
+  display: flex;
+}
+.footer{
+  min-height: 100vh;
+}
+
+.content-cards {
+  
+  min-width: 70vw;
+  display: flex;
+  
+}
+
+.about {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  
+  margin-bottom: 15px;
+  font-size: 1.4rem;
+  line-height: 2.4rem;
+ 
+  font-family: Calibri, 'Trebuchet MS', sans-serif;
+}
+ 
+
+.content-map{
+ min-width: 20vw;
+}
+.content-cards {
+  margin: 5vh;
+  display: flex;
+  row-gap: 5vh;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.card{
+  box-shadow: -16px 6px 6px 1px rgba(55, 55, 55, .2);
+  display:flex;
+  width: 40vw;
+}
+.card-image {
+  width: 200px;
+  height: 200px;
+  
+  background-size: cover;
+}
+.card-body{
+  display: flex;
+  flex-direction: column;
+  width: calc( 70% - 200px);
+  padding: 16px;
+ 
+}
+.card-title{
+  font-size: 2rem;
+}
+.card-text {
+  margin-bottom: 8px;
+  margin-top: 8px;
+  flex: auto;
 }
