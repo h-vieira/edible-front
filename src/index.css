@@ -11,3 +11,28 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+
+.svg-map-custom {
+  height: 300px;
+}
+
+.svg-map__location_selected {
+  fill: orange;
+  cursor: pointer;
+  outline: none !important;
+}
+
+.svg-map__location_default {
+  fill: teal;
+  cursor: pointer;
+  outline: none !important;
+}
+
+.svg-map__location_default:hover {
+  fill: lightblue;
+}
