@@ -2,6 +2,7 @@ import { Fragment, useState, useEffect} from 'react';
 import {  useParams } from 'react-router-dom';
 import axios from 'axios';
 import URL from '../utils/constants.js';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 const Edible = () => {
     const [loading, setLoading] = useState(false)
@@ -19,18 +20,23 @@ const Edible = () => {
 
     return (
         
-        <div className="edible-section">
+        <div className="edible-container">
             {!loading ? (
                 <Fragment>
-                    <div className="edible-geral">
-                        <div className="edible-name">{ data.name }</div>
-                        <div className="edible-sname">{data.scientificName}</div>
-                        <spam> Description </spam>
-                        <div className="edible- description"> {data.desc}</div>
-                    </div>
-                    <div className="edible-image" style={{ backgroundImage: `url(${data.image})` }}> </div>
+                <div className="edible-title">{ data.name }</div>
+                <div className="edible-image" style={{ backgroundImage: `url(${data.image})` }}> </div>
+                <div className="edible-item">
+                    <div className="edible-item-name">Scientific name:</div>
+                    <div className="edible-item-text">{data.scientificName}</div>
+                </div>     
+                <div className="edible-item">
+                    <div className="edible-item-name">Description:</div>
+                    <div className="edible-item-text">{data.desc}</div>
+                </div>     
+               
+                 
                 </Fragment> 
-            ): (<div> Loading ...</div> )}
+            ): (<div className="spiner"><CircularProgress /></div> )}
         </div>
     );
 };

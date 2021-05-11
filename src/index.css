@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: -apple-system  'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -84,11 +84,12 @@ body::-webkit-scrollbar {
 .card{
   box-shadow: -16px 6px 6px 1px rgba(55, 55, 55, .2);
   display:flex;
-  width: 40vw;
+  width: 60%;
+
 }
 .card-image {
   width: 200px;
-  height: 200px;
+  height: 100%;
   
   background-size: cover;
 }
@@ -101,6 +102,7 @@ body::-webkit-scrollbar {
 }
 .card-title{
   font-size: 2rem;
+  margin-top: -1rem;
 }
 .card-text {
   margin-bottom: 8px;
@@ -110,5 +112,52 @@ body::-webkit-scrollbar {
 }
 
 .edible-container{
+  display:flex;
   min-height: 70vh;
+ 
+  padding: 0 10vw ;
+  flex-direction: column;
+}
+.edible-section1{
+  
+}
+
+.edible-title{
+  
+  font-size: 3rem;
+  font-weight: 600;
+  margin: 24px 0;
+}
+.edible-item{
+  display: flex;
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+}
+.edible-item-name {
+  min-width: 16ch;
+  font-weight: 600;
+  margin-right: 16px;
+  
+}
+.edible-item-text {
+   
+  font-weight: 0;
+  
+}
+.edible-image{
+  height: 30vh;
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 24px;
+}
+
+
+
+
+
+
+
+.spiner{
+  display: flex;
+  justify-content: center;
 }
