@@ -35,7 +35,7 @@ const App = () => {
 					<Route exact path='/'  render={() => <Home />} />
 					<Route exact path="/edible/:id" render={() => <Edible />} />
 
-					<Route exact path='/create-edible' render={() => <CreateEdible />} />
+					<ProtectedRoute exact path='/create-edible' component={CreateEdible} />
 					<Route exact path='/ediblepedia' render={() => <Ediblepedia />} />
 					<Route exact path='/sign-up/' render={() => <SignUp />} />
 					<Route exact path='/sign-in/' render={() => <SignIn />} />

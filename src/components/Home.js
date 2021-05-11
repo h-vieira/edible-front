@@ -6,6 +6,7 @@ import About from '../components/About.js';
 import { makeStyles } from '@material-ui/core/styles';
 import URL from '../utils/constants.js';
 import '../index.css';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
 	root: { 
@@ -45,7 +46,7 @@ const Home = () => {
         });
     }, []);
 
-
+    
 
     return (
         
@@ -53,10 +54,14 @@ const Home = () => {
                 
                
                 <div className="content">
-                    <div className="content-map">{ isAuth &&(<SvgMaps></SvgMaps> ) }</div>  
+                    <div className="content-map">{/* { isAuth &&(<SvgMaps></SvgMaps> ) } */}</div>  
                     <div className="content-cards">
                     { !isAuth && ( <About></About> ) }
-                    { edibles.map(edible => ( <EdibleCard key={edible.id} edibles={edible} />))}
+                   
+                    { edibles && edibles.map(edible => ( <EdibleCard key={edible.id} edibles={edible} />)) }
+                    { !edibles &&  <spam><Link to="/create-edible">Be the first one to contribute!</Link></spam> }
+                         
+                    
                     
                     </div>
                     <div className="content-right"></div>
